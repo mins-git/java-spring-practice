@@ -1,5 +1,6 @@
 package ssafy.ssafy_spring.repository;
 
+import org.springframework.stereotype.Repository;
 import ssafy.ssafy_spring.domain.Member;
 
 import java.util.*;

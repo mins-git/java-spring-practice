@@ -1,5 +1,7 @@
 package ssafy.ssafy_spring.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ssafy.ssafy_spring.domain.Member;
 import ssafy.ssafy_spring.repository.MemberRepository;
 import ssafy.ssafy_spring.repository.MemoryMemberRepsotiroy;
@@ -10,7 +12,8 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    //DI가 된것임.
+
+    @Autowired // Autowired가 너는 memberRepository가 필요하구나 하면서 넣어줌.
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
