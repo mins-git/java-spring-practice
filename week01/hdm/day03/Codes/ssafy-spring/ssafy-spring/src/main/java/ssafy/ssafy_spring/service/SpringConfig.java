@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ssafy.ssafy_spring.AOP.TimeTraceAOP;
 import ssafy.ssafy_spring.repository.*;
 
 import javax.sql.DataSource;
@@ -41,6 +42,11 @@ public class SpringConfig {
 ////        return new JdbcTemplateMemberRepository(dataSource);
 ////        return new JpaMemberRepository(em);
 //
+//    }
+
+//    @Bean
+//    public TimeTraceAOP timeTraceAOP(){
+//        return new TimeTraceAOP();
 //    }
 
 }
