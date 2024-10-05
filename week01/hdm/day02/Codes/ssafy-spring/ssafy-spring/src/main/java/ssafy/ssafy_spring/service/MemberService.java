@@ -2,6 +2,7 @@ package ssafy.ssafy_spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ssafy.ssafy_spring.domain.Member;
 import ssafy.ssafy_spring.repository.MemberRepository;
 import ssafy.ssafy_spring.repository.MemoryMemberRepsotiroy;
@@ -9,6 +10,9 @@ import ssafy.ssafy_spring.repository.MemoryMemberRepsotiroy;
 import java.util.List;
 import java.util.Optional;
 
+
+
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
@@ -25,7 +29,6 @@ public class MemberService {
         memberRepository.save(member);
         return member.getId();
     }
-
 
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
