@@ -1,20 +1,22 @@
 package hello.hello_spring.repository;
 
 import hello.hello_spring.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+// 구현체 작성하기
 //@Repository	// 컴포넌트 스캔 시 사용
 public class MemoryMemberRepository implements MemberRepository {
 	
 	// 실무에서는 동시성 문제 고려하여 공유되는 변수일 경우  ConcurrentHashMap, AtomicLong 등 사용
 	private static Map<Long, Member> store = new HashMap<>();	// id와 회원 매치해주기 위해 Map 사용
 	private static long sequence = 0L;	// 키 값을 생성
-	
+
 
 	@Override
 	public Member save(Member member) {
+		// id: 회원가입 시 입력
+		// name: 시스템이 등록해줌(++sequence)
 		member.setId(++sequence);
 		store.put(member.getId(), member);
 		return member;

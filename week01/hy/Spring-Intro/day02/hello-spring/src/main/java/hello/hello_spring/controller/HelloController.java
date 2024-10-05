@@ -31,13 +31,13 @@ public class HelloController {
 	}
 	
 	// json 변환
-	@GetMapping
-	@ResponseBody
-	public Hello helloApi(@RequestParam("name") String name) {
-		Hello hello = new Hello();
-		hello.setName(name);
-		return hello;
-	}
+//	@GetMapping
+//	@ResponseBody
+//	public Hello helloApi(@RequestParam("name") String name) {
+//		Hello hello = new Hello();
+//		hello.setName(name);
+//		return hello;
+//	}
 	
 	static class Hello {
 		private String name;
