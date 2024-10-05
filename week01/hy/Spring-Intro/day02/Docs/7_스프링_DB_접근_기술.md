@@ -91,7 +91,7 @@ public class SpringConfig {
 ```
 - DataSource: 데이터베이스 커넥션을 획득할 때 사용하는 객체
 - 스프링 부트는 데이터베이스 커넥션 정보를 바탕으로 DataSource를 생성하고 스프링 빈으로 만들어둔다. 그래서 DI를 받을 수 있다.
-- 
+
 **구현 클래스 추가 이미지**
 
 ![alt text](Images/image-3.png)
@@ -123,6 +123,7 @@ public class MemberServiceIntegrationTest {
 
 - 순수 Jdbc와 동일한 환경설정을 하면 된다.
 - 스프링 JdbcTemplate과 MyBatis 같은 라이브러리는 JDBC API에서 본 반복 코드를 대부분 제거해준다. 하지만 SQL은 직접 작성해야 한다.
+  
 **스프링 JdbcTemplate 회원 리포지토리**
 ```java
 package hello.hello_spring.repository;
@@ -235,7 +236,7 @@ public class SpringConfig {
   - 기존의 반복 코드는 물론이고, 기본적인 SQL도 JPA가 직접 만들어서 실행해준다.
   - SQL과 데이터 중심의 설계에서 객체 중심의 설계로 패러다임 전환
   - 개발 생산성 대폭 향상
-  - 
+  
 **build.gradle 파일에 JPA, h2 데이터베이스 관련 라이브러리 추가**
 ```
 dependencies {
@@ -249,8 +250,10 @@ dependencies {
     }
 }
 ```
-`spring-boot-starter-data-jpa` 는 내부에 jdbc 관련 라이브러리를 포함한다. 따라서 jdbc는 제거해도 된다.
+- `spring-boot-starter-data-jpa` 는 내부에 jdbc 관련 라이브러리를 포함한다. 따라서 jdbc는 제거해도 된다.
+  
 **스프링 부트에 JPA 설정 추가**
+
 `resources/application.properties`
 ```
 spring.datasource.url=jdbc:h2:tcp://localhost/~/test
@@ -263,7 +266,7 @@ spring.jpa.hibernate.ddl-auto=none
 - `show-sql` : JPA가 생성하는 SQL을 출력한다.
 - `ddl-auto` : JPA는 테이블을 자동으로 생성하는 기능을 제공하는데 `none` 를 사용하면 해당 기능을 끈다.
 - `create` 를 사용하면 엔티티 정보를 바탕으로 테이블도 직접 생성해준다.
-- 
+
 **JPA 엔티티 매핑**
 ```java
 package hello.hello_spring.domain;
