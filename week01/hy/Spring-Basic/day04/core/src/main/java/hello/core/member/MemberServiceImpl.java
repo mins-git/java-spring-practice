@@ -1,18 +1,22 @@
 package hello.core.member;
 
 public class MemberServiceImpl implements MemberService {
+    // 인터페이스만 있으면 NullPointerException
+    // 구현 객체 선택해야됨
+//    private final MemberRepository memberRepository = new MemoryMemberRepository();
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
 
-    // 인터페이스만 있으면 널포인트익셉션~
-    // 구현 개겣 선택해야됨
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
-    @Override
+//    @Override
     public void join(Member member) {
         memberRepository.save(member);
     }
 
-    @Override
+//    @Override
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
     }
