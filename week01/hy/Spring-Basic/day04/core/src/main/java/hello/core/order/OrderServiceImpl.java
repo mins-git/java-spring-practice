@@ -17,6 +17,12 @@ public class OrderServiceImpl implements OrderService {
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();     // 일정 비율 할인
 //    DIP 지키려면 어떻게 해야되는가? -> 인터페이스에만 의존하도록 코드 변경
     private final MemberRepository memberRepository;
+
+    // 싱글톤(스프링 컨테이너) 테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
+
     private final DiscountPolicy discountPolicy;
 
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
